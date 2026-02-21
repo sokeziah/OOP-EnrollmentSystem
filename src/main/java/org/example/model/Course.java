@@ -1,4 +1,4 @@
-package org.example;
+package org.example.model;
 
 public class Course {
     private String courseID;
@@ -46,5 +46,14 @@ public class Course {
         System.out.println("Course Name: " + " " + getCourseName());
         System.out.println("Program: " + " " + getProgram() + "\n");
 
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseID='" + courseID + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", program='" + program + '\'' +
+                '}';
     }
 }

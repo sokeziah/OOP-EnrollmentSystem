@@ -1,29 +1,62 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import org.example.model.Course;
+import org.example.model.Student;
+import org.example.service.CourseRegistration;
+import org.example.service.StudentRegistration;
+
+import java.util.Scanner;
+
 public class Main {
-    static void main(String[] args) {
-        Student student1 = new Student();
-        Student student2 = new Student();
 
-        student1.setStudentID("000123");
-        student1.setStudentName("John Doe");
-        student1.setProgram("Information Technology");
+    private static final StudentRegistration studentService = new StudentRegistration();
+    private static final CourseRegistration courseService = new CourseRegistration();
+    private static final Scanner scanner = new Scanner(System.in);
 
-        student2.setStudentID("000124");
-        student2.setStudentName("Jane Doe");
-        student2.setProgram("Information Technology");
+    public static void main(String[] args) {
+        int choice;
+        do {
+            displayMainMenu();
+            choice = getUserChoice();
 
-        Course course1 = new Course();
+            switch (choice) {
+                case 1:
+                    studentMenu();
+                    break;
+                case 2:
+                    courseMenu();
+                    break;
+                case 0:
+                    System.out.println("Exiting application. Goodbye!");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
+            }
+            System.out.println();
+        } while (choice != 0);
 
-        course1.setCourseID("000001");
-        course1.setCourseName("Integrative Programming");
-        course1.setProgram("Information Technology");
+        scanner.close();
+    }
 
-        student1.display();
-        student2.display();
-        course1.display();
+    private static void displayMainMenu() {
+        System.out.println("===== MAIN MENU =====");
+        System.out.println("[1] Student Management");
+        System.out.println("[2] Course Management");
+        System.out.println("[0] Exit");
+        System.out.println("=====================");
+    }
 
+    private static int getUserChoice() {
+        System.out.print("Enter your choice: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Invalid input. Please enter a number.");
+            scanner.next();
+            System.out.print("Enter your choice: ");
+        }
+        int choice = scanner.nextInt();
+        scanner.nextLine();
+        return choice;
+        }
     }
 }
