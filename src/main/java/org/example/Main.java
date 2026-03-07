@@ -13,6 +13,7 @@ public class Main {
     private static final CourseRegistration courseService = new CourseRegistration();
     private static final Scanner scanner = new Scanner(System.in);
 
+
     public static void main(String[] args) {
         int choice;
         do {
