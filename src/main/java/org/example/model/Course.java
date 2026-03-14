@@ -1,11 +1,16 @@
-package org.example;
+package org.example.model;
 
-public class Course {
+public class Course extends Person {
     private String courseID;
     private String courseName;
     private String program;
 
     public Course(){
+
+    }
+
+    @Override
+    public void mainTask() {
 
     }
 
@@ -45,6 +50,16 @@ public class Course {
         System.out.println("Course ID: " + " " + getCourseID());
         System.out.println("Course Name: " + " " + getCourseName());
         System.out.println("Program: " + " " + getProgram() + "\n");
+
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseID='" + courseID + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", program='" + program + '\'' +
+                '}';
 
     }
 }
