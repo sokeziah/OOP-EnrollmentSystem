@@ -11,6 +11,7 @@ public class Course extends Person {
 
     @Override
     public void mainTask() {
+        System.out.println("Course Registered");
 
     }
 
