@@ -20,4 +20,4 @@ Person Abstraction
 
 ![student.png](src/main/resources/images/student.png)
 
-![Inheritance.png](src/main/resources/images/Inheritance.png)
+![instructor.png](src/main/resources/images/instructor.png)
