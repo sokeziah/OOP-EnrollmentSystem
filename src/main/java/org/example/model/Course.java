@@ -1,11 +1,16 @@
 package org.example.model;
 
-public class Course {
+public class Course extends Person {
     private String courseID;
     private String courseName;
     private String program;
 
     public Course(){
+
+    }
+
+    @Override
+    public void mainTask() {
 
     }
 
@@ -55,5 +60,6 @@ public class Course {
                 ", courseName='" + courseName + '\'' +
                 ", program='" + program + '\'' +
                 '}';
+
     }
 }

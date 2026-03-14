@@ -7,6 +7,8 @@ public class Instructor extends Person {
         this.Courses = Courses;
 
     }
+
+
     public String getCourses(){
         return Courses;
 
@@ -14,5 +16,12 @@ public class Instructor extends Person {
     public void setCourses(String Courses){
         this.Courses = Courses;
 
+
+
+    }
+
+    @Override
+    public void mainTask() {
+        System.out.println("Instructor Details");
     }
 }

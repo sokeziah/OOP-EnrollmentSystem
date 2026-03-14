@@ -12,3 +12,12 @@ Author: Keziah Fatima Bianca So
 **Inheritance**
 
 ![Inheritance.png](src/main/resources/images/Inheritance.png)
+
+**Abstraction**
+
+Person Abstraction
+![personAbstraction.png](src/main/resources/images/personAbstraction.png)
+
+![student.png](src/main/resources/images/student.png)
+
+![Inheritance.png](src/main/resources/images/Inheritance.png)

@@ -6,6 +6,12 @@ public class Student extends Person {
     public Student() {
 
     }
+
+    @Override
+    public void mainTask() {
+
+    }
+
     public Student(String program){
         this.program = program;
 
@@ -22,5 +28,7 @@ public class Student extends Person {
         System.out.println("Student ID: " + " " + getPersonID());
         System.out.println("Student Name: " + " " + getPersonName());
         System.out.println("Program: " + " " + getProgram() + "\n");
+
+
     }
 }
