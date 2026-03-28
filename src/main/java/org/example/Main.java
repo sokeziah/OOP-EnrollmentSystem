@@ -2,17 +2,16 @@ package org.example;
 
 import org.example.model.Course;
 import org.example.model.Student;
+import org.example.service.CampusRegistrar;
 import org.example.service.StudentRegistration;
 import org.example.service.CourseRegistration;
 
 import java.util.Scanner;
 
 public class Main {
-
-    private static final StudentRegistration studentService = new StudentRegistration();
-    private static final CourseRegistration courseService = new CourseRegistration();
     private static final Scanner scanner = new Scanner(System.in);
 
+    private static CampusRegistrar campusRegistrar = new CampusRegistrar(new StudentRegistration(), new CourseRegistration());
 
     public static void main(String[] args) {
 
@@ -83,7 +82,7 @@ public class Main {
                     break;
 
                 case 2:
-                    studentService.displayAllStudent();
+                    campusRegistrar.displayAllStudent();
                     break;
 
                 case 3:
@@ -120,7 +119,7 @@ public class Main {
         student.setPersonName(name);
         student.setProgram(program);
 
-        studentService.saveStudent(student);
+        campusRegistrar.saveStudent(student);
 
         System.out.println("Student registered successfully.");
     }
@@ -130,7 +129,7 @@ public class Main {
         System.out.print("Enter Student ID: ");
         String id = scanner.nextLine();
 
-        Student s = studentService.findStudentById(id);
+        Student s = campusRegistrar.findStudentById(id);
 
         if (s != null) {
             s.display();
@@ -144,10 +143,10 @@ public class Main {
         System.out.print("Enter Student ID to delete: ");
         String id = scanner.nextLine();
 
-        Student s = studentService.findStudentById(id);
+        Student s = campusRegistrar.findStudentById(id);
 
         if (s != null) {
-            studentService.removeStudent(s);
+            campusRegistrar.removeStudent(s);
             System.out.println("Student removed.");
         } else {
             System.out.println("Student not found.");
@@ -179,7 +178,7 @@ public class Main {
                     break;
 
                 case 2:
-                    courseService.displayAllCourse();
+                    campusRegistrar.displayAllCourse();
                     break;
 
                 case 3:
@@ -213,7 +212,7 @@ public class Main {
 
         Course course = new Course(id, name, program);
 
-        courseService.saveCourse(course);
+        campusRegistrar.saveCourse(course);
 
         System.out.println("Course added successfully.");
     }
@@ -223,7 +222,7 @@ public class Main {
         System.out.print("Enter Course ID: ");
         String id = scanner.nextLine();
 
-        Course c = courseService.findCourseByID(id);
+        Course c = campusRegistrar.findCourseByID(id);
 
         if (c != null) {
             c.display();
@@ -237,10 +236,10 @@ public class Main {
         System.out.print("Enter Course ID to delete: ");
         String id = scanner.nextLine();
 
-        Course c = courseService.findCourseByID(id);
+        Course c = campusRegistrar.findCourseByID(id);
 
         if (c != null) {
-            courseService.removeCourse(c);
+            campusRegistrar.removeCourse(c);
             System.out.println("Course removed.");
         } else {
             System.out.println("Course not found.");

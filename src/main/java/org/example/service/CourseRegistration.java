@@ -3,13 +3,15 @@ package org.example.service;
 import org.example.model.Course;
 import java.util.ArrayList;
 
-public class CourseRegistration {
+public class CourseRegistration implements CourseReg{
     private ArrayList<Course> courseLists = new ArrayList();
-
+    @Override
     public void saveCourse(Course course) {
+
         courseLists.add(course);
     }
 
+    @Override
     public void displayAllCourse() {
         if (courseLists.isEmpty()) {
             System.out.println("No courses registered");
@@ -23,6 +25,7 @@ public class CourseRegistration {
         }
     }
 
+    @Override
     public void updateCourse (Course course){
         for(int i = 0; i < courseLists.size(); i++){
             if(courseLists.get(i).getCourseName().equals(course.getCourseName())){
@@ -32,6 +35,7 @@ public class CourseRegistration {
         }
     }
 
+    @Override
     public void removeCourse(Course course){
         for(int i = 0; i < courseLists.size(); i++) {
             if (courseLists.get(i).getCourseName().equals(course.getCourseName())) {
@@ -39,6 +43,11 @@ public class CourseRegistration {
                 break;
             }
         }
+    }
+
+    @Override
+    public String findCourseByID(Course course) {
+        return "";
     }
 
     public Course findCourseByID(String courseID) {
@@ -50,3 +59,4 @@ public class CourseRegistration {
         return null;
     }
 }
+

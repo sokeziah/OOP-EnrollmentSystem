@@ -3,18 +3,19 @@ package org.example.service;
 import org.example.model.Student;
 import java.util.ArrayList;
 
-public class StudentRegistration {
+public class StudentRegistration implements StudentReg{
     private ArrayList<Student> studentLists = new ArrayList<>();
 
-    public void saveStudent(Student student){
-        studentLists.add(student);
+    @Override
+    public void saveStudent(Student student) {
+
     }
 
-    public void displayAllStudent() {
+    @Override
+    public void displayALlStudent() {
         if(studentLists.isEmpty()){
             System.out.println("No student registered.");
             return;
-
         }
         for (Student s : studentLists){
             System.out.println("Student ID: " + s.getPersonID());
@@ -24,6 +25,7 @@ public class StudentRegistration {
         }
     }
 
+    @Override
     public void updateStudent(Student student){
         for(int i = 0; i < studentLists.size(); i++){
             if(studentLists.get(i).getPersonName().equals(student.getPersonName())){
@@ -33,6 +35,7 @@ public class StudentRegistration {
         }
     }
 
+    @Override
     public void removeStudent(Student student){
         for(int i = 0; i < studentLists.size(); i++){
             if (studentLists.get(i).getPersonName().equals(student.getPersonName())){
@@ -42,6 +45,11 @@ public class StudentRegistration {
         }
     }
 
+    @Override
+    public String findStudentById(Student student) {
+        return "";
+    }
+
     public Student findStudentById(String studentID) {
         for (Student s : studentLists) {
             if (s.getPersonID().equals(studentID)) {
@@ -49,5 +57,8 @@ public class StudentRegistration {
             }
         }
         return null;
+    }
+
+    public void displayAllStudent() {
     }
 }
