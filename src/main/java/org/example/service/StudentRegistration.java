@@ -8,6 +8,7 @@ public class StudentRegistration implements StudentReg{
 
     @Override
     public void saveStudent(Student student) {
+        studentLists.add(student);
 
     }
 
@@ -18,18 +19,15 @@ public class StudentRegistration implements StudentReg{
             return;
         }
         for (Student s : studentLists){
-            System.out.println("Student ID: " + s.getPersonID());
-            System.out.println("Student Name: " + s.getPersonName());
-            System.out.println("Program: " + s.getProgram());
-            System.out.println("-------------------------------------");
+            s.display();
         }
     }
 
     @Override
     public void updateStudent(Student student){
         for(int i = 0; i < studentLists.size(); i++){
-            if(studentLists.get(i).getPersonName().equals(student.getPersonName())){
-                studentLists.set(i, student);
+            if (studentLists.get(i).getPersonID().equals(student.getPersonID())) {
+                studentLists.set(i, student); // [cite: 296]
                 break;
             }
         }
@@ -46,10 +44,6 @@ public class StudentRegistration implements StudentReg{
     }
 
     @Override
-    public String findStudentById(Student student) {
-        return "";
-    }
-
     public Student findStudentById(String studentID) {
         for (Student s : studentLists) {
             if (s.getPersonID().equals(studentID)) {
@@ -57,8 +51,5 @@ public class StudentRegistration implements StudentReg{
             }
         }
         return null;
-    }
-
-    public void displayAllStudent() {
     }
 }

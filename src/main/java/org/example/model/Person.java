@@ -4,7 +4,12 @@ public abstract class Person {
     private String PersonID;
     private String PersonName;
 
-    public Person() {
+    public Person(String PersonName, String PersonID) {
+        this.PersonName = PersonName;
+        this.PersonID = PersonID;
+    }
+
+    public Person(){
 
     }
 
@@ -12,17 +17,17 @@ public abstract class Person {
         return PersonID;
 
     }
-    public void setPersonID(String PersonID){
-        this.PersonID = PersonID;
-
-    }
     public String getPersonName(){
         return PersonName;
 
     }
-    public void setPersonName(String name){
+    public void setPersonID(String PersonID){
+        this.PersonID = PersonID;
 
-        this.PersonName = PersonName;
+    }
+    public void setPersonName(String name){
+        this.PersonName = name;
+
     }
 
     public abstract void mainTask();

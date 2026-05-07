@@ -5,10 +5,11 @@ import java.util.ArrayList;
 
 public class CourseRegistration implements CourseReg{
     private ArrayList<Course> courseLists = new ArrayList();
+
     @Override
     public void saveCourse(Course course) {
-
         courseLists.add(course);
+
     }
 
     @Override
@@ -22,6 +23,7 @@ public class CourseRegistration implements CourseReg{
             System.out.println("Course Name: " + c.getCourseName());
             System.out.println("Program: " + c.getProgram());
             System.out.println("---------------------------------");
+
         }
     }
 
@@ -46,10 +48,6 @@ public class CourseRegistration implements CourseReg{
     }
 
     @Override
-    public String findCourseByID(Course course) {
-        return "";
-    }
-
     public Course findCourseByID(String courseID) {
         for (Course c : courseLists) {
             if (c.getCourseID().equals(courseID)){

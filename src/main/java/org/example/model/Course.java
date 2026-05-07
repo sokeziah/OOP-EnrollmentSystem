@@ -4,10 +4,7 @@ public class Course extends Person {
     private String courseID;
     private String courseName;
     private String program;
-
-    public Course(){
-
-    }
+    private int units;
 
     @Override
     public void mainTask() {
@@ -15,42 +12,51 @@ public class Course extends Person {
 
     }
 
-    public Course(String CourseID, String courseName, String program) {
+    public Course(String courseID, String courseName, String program, int units) {
         this.courseID = courseID;
         this.courseName = courseName;
         this.program = program;
+        this.units = units;
 
     }
     public String getCourseID(){
         return courseID;
 
     }
-    public void setCourseID(String courseID) {
-        this.courseID = courseID;
-
-    }
-
     public String getCourseName() {
         return courseName;
 
     }
-
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-    }
-
     public String getProgram() {
         return program;
 
     }
+    public int getUnits(){
+        this.units = units;
 
+    }
+    public void setCourseID(String courseID) {
+        this.courseID = courseID;
+
+    }
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+
+    }
     public void setProgram(String program){
         this.program = program;
+
+    }
+    public void setUnits(int units){
+        this.units = units;
+
     }
     public void display(){
-        System.out.println("Course ID: " + " " + getCourseID());
-        System.out.println("Course Name: " + " " + getCourseName());
-        System.out.println("Program: " + " " + getProgram() + "\n");
+        System.out.println("Course ID: " + " " + courseID());
+        System.out.println("Course Name: " + " " + courseName());
+        System.out.println("Program: " + " " + program());
+        System.out.println("Program: " + " " + units() + "\n");
+
 
     }
 
@@ -60,6 +66,7 @@ public class Course extends Person {
                 "courseID='" + courseID + '\'' +
                 ", courseName='" + courseName + '\'' +
                 ", program='" + program + '\'' +
+                ", units='" + units + '\'' +
                 '}';
 
     }

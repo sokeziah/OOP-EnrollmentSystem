@@ -4,13 +4,13 @@ import org.example.model.Student;
 import org.example.model.Course;
 
 public class CampusRegistrar {
-    private StudentReg studentRegistration;
-    private CourseReg courseReg;
+
+    final private StudentReg studentRegistration;
+    final private CourseReg courseReg;
 
     public CampusRegistrar(StudentReg studentRegistration, CourseReg courseReg) {
         this.studentRegistration = studentRegistration;
         this.courseReg = courseReg;
-
     }
 
     public String saveCourse(Course course){
@@ -53,13 +53,11 @@ public class CampusRegistrar {
         return "Success";
     }
 
-    public String findStudentById(Student student){
-        studentRegistration.findStudentById(student);
-        return "Success";
+    public Student findStudentById(String id){
+        return studentRegistration.findStudentById(id); // now returns Student
     }
 
-    public String findCourseByID(Course course){
-        courseReg.findCourseByID(course);
-        return "Success";
+    public Course findCourseByID(String id){
+        return courseReg.findCourseByID(id); // now returns Course
     }
 }
