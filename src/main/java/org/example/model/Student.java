@@ -7,19 +7,18 @@ public class Student extends Person {
     public Student(String PersonName, String PersonID, String program) {
         super(PersonName, PersonID);
         this.program = program;
-        this.tuitionDetails = new TuitionFeePayment(0);
+        this.tuitionDetails = new TuitionFeePayment(0.0);
     }
+
     public void setPersonName(String personName) {
         super.setPersonName(personName);
     }
 
     public void setProgram(String program){
-
         this.program = program;
     }
 
     public String getProgram(){
-
         return program;
     }
 
