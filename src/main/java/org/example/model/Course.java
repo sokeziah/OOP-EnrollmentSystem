@@ -9,7 +9,6 @@ public class Course extends Person {
     @Override
     public void mainTask() {
         System.out.println("Course Registered");
-
     }
 
     public Course(String courseID, String courseName, String program, int units) {
@@ -17,8 +16,8 @@ public class Course extends Person {
         this.courseName = courseName;
         this.program = program;
         this.units = units;
-
     }
+
     public String getCourseID(){
         return courseID;
 
@@ -32,7 +31,7 @@ public class Course extends Person {
 
     }
     public int getUnits(){
-        this.units = units;
+        return units;
 
     }
     public void setCourseID(String courseID) {
@@ -52,10 +51,10 @@ public class Course extends Person {
 
     }
     public void display(){
-        System.out.println("Course ID: " + " " + courseID());
-        System.out.println("Course Name: " + " " + courseName());
-        System.out.println("Program: " + " " + program());
-        System.out.println("Program: " + " " + units() + "\n");
+        System.out.println("Course ID: " + " " + getCourseID());
+        System.out.println("Course Name: " + " " + getCourseName());
+        System.out.println("Program: " + " " + getProgram());
+        System.out.println("Program: " + " " + getUnits() + "\n");
 
 
     }
