@@ -1,6 +1,7 @@
 package org.example.model;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Section {
     private String sectionName;
@@ -31,7 +32,6 @@ public class Section {
     public void setCourse(Course course) {
         this.course = course;
     }
-
 
     public String getSectionName() {
         return sectionName;
