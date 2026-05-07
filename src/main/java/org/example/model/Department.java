@@ -12,42 +12,38 @@ public class Department {
         this.departmentName = departmentName;
         this.instructorList = instructorList;
         this.sectionList = sectionList;
-
     }
 
     public String getDepartmentID(){
         return departmentID;
-
     }
-    public String getDepartmentName(){
-        return departmentName;
 
-    }
-    public List<Instructor> getInstructorList(){
-        return instructorList;
-
-    }
-    public List<Section> getSectionList(){
-        return sectionList;
-
-    }
     public void setDepartmentID(String departmentID){
         this.departmentID = departmentID;
     }
 
+    public String getDepartmentName(){
+        return departmentName;
+    }
+
     public void setDepartmentName(String departmentName){
         this.departmentName = departmentName;
+    }
 
+    public List<Instructor> getInstructorList(){
+        return instructorList;
     }
 
     public void setInstructorList(List<Instructor> instructorList){
         this.instructorList = instructorList;
+    }
 
+    public List<Section> getSectionList(){
+        return sectionList;
     }
 
     public void setSectionList(List<Section> sectionList){
         this.sectionList = sectionList;
-
     }
 
     public void displayDepartment(){
@@ -56,6 +52,7 @@ public class Department {
         System.out.println("List of Instructors: " + getInstructorList());
         System.out.println("List of Sections: " + getSectionList() + "\n");
     }
+
     @Override
     public String toString() {
         return departmentName + " (ID: " + departmentID + ")";
