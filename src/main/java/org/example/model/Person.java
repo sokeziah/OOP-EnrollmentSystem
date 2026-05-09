@@ -1,32 +1,26 @@
 package org.example.model;
 
 public abstract class Person {
-    private String PersonID;
-    private String PersonName;
+    private String personId;
+    protected String personFullName;
 
-    public Person() {
+    public Person(String personId, String personFullName) {
+        this.personId = personId;
+        this.personFullName = personFullName;
     }
 
-    public Person(String PersonName, String PersonID) {
-        this.PersonName = PersonName;
-        this.PersonID = PersonID;
+    public String getPersonId() {
+        return personId;
     }
 
-    public String getPersonID() {
-        return PersonID;
+    public String getPersonFullName() {
+        return personFullName;
     }
 
-    public void setPersonID(String PersonID) {
-        this.PersonID = PersonID;
+    public void setPersonFullName(String personFullName) {
+        this.personFullName = personFullName;
     }
 
-    public String getPersonName() {
-        return PersonName;
-    }
-
-    public void setPersonName(String PersonName) {
-        this.PersonName = PersonName;
-    }
-
-    public abstract void mainTask();
+    // Abstract method to be handled by Services later
+    public abstract void displayProfile();
 }

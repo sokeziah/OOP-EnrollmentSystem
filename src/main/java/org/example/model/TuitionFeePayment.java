@@ -1,41 +1,21 @@
 package org.example.model;
 
-public class Student extends Person {
-    private String program;
-    private TuitionFeePayment tuitionDetails;`
+public class TuitionFeePayment {
+    private double totalAssessedFee = 0.0;
+    private double totalPaidAmount = 0.0;
+    private double discountAmount = 0.0; // Added for scholarships
 
-    public Student(String PersonName, String PersonID, String program) {
-        super(PersonName, PersonID);
-        this.program = program;
-        this.tuitionDetails = new TuitionFeePayment(0);
-    }
-    public void setPersonName(String personName) {
-        super.setPersonName(personName);
-    }
+    public double getTotalAssessedFee() { return totalAssessedFee; }
+    public void setTotalAssessedFee(double fee) { this.totalAssessedFee = fee; }
 
-    public void setProgram(String program){
+    public double getTotalPaidAmount() { return totalPaidAmount; }
+    public void setTotalPaidAmount(double paid) { this.totalPaidAmount = paid; }
 
-        this.program = program;
-    }
+    public double getDiscountAmount() { return discountAmount; }
+    public void setDiscountAmount(double discount) { this.discountAmount = discount; }
 
-    public String getProgram(){
-
-        return program;
-    }
-
-    public TuitionFeePayment getTuitionDetails(){
-        return tuitionDetails;
-    }
-
-    public void sdisplay(){
-        System.out.println("Student ID: " + getPersonID());
-        System.out.println("Student Name: " + getPersonName());
-        System.out.println("Program: " + getProgram() + "\n");
-    }
-
-
-    @Override
-    public void mainTask() {
-        System.out.println("Student learns");
+    public double getRemainingBalance() {
+        // Formula: Total - Discount - What has already been paid
+        return totalAssessedFee - discountAmount - totalPaidAmount;
     }
 }

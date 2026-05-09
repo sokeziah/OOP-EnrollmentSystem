@@ -1,11 +1,18 @@
 package org.example.service;
-import org.example.model.TuitionFeePayment;
-import java.util.List;
 
-public interface TuitionReg {
-    void saveTuition(String studentID, TuitionFeePayment tuition);
-    List<TuitionFeePayment> displayAllTuitions();
-    void updateTuitionBalance(String studentID, double paymentAmount);
-    void removeTuition(String studentID);
-    TuitionFeePayment findById(String studentID);
+import org.example.model.Student;
+
+public interface ITuitionService {
+    // Calculates base fee: units * rate
+    void calculateFee(Student student, int units);
+    // The Action for the Scholarship logic you requested
+    void applyScholarship(Student student, double percentage);
+    // Processes a basic payment
+    void makePayment(Student student, double amount);
+    // Displays the final balance
+    double getRemainingBalance(Student student);
+    // Displays the full statement to the console
+    void displayBillingStatement(Student student);
+    void payTuition(Student student, double amount);
+    void processPayment(Student s, double amount);
 }

@@ -1,12 +1,14 @@
 package org.example.service;
+
 import org.example.model.Department;
+import org.example.model.Section;
+import org.example.model.Instructor;
 import java.util.List;
 
-public interface DepartmentReg {
-    void saveDepartment(Department department);
-    List<Department> displayAllDepartments();
-    // Since department name is the ID, updating it is usually complex. We leave this empty or throw unsupported.
-    void updateDepartment(String name);
-    void removeDepartment(String name);
-    Department findById(String name); // Uses name as the ID
+public interface IDepartmentService {
+    void addDepartment(Department department);
+    void linkSectionToDept(Section section, Department department);
+    void assignInstructorToDept(Instructor instructor, Department department);
+    Department findDepartment(String name);
+    List<Department> getAllDepartments();
 }

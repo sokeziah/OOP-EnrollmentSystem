@@ -1,72 +1,20 @@
 package org.example.model;
 
-public class Course extends Person {
-    private String courseID;
-    private String courseName;
-    private String program;
-    private int units;
+public class Course {
+    private String courseCode;
+    private String courseTitle;
+    private int creditUnits;
 
-    @Override
-    public void mainTask() {
-        System.out.println("Course Registered");
+    public Course(String code, String title, int units) {
+        this.courseCode = code;
+        this.courseTitle = title;
+        this.creditUnits = units;
     }
 
-    public Course(String courseID, String courseName, String program, int units) {
-        this.courseID = courseID;
-        this.courseName = courseName;
-        this.program = program;
-        this.units = units;
-    }
-
-    public String getCourseID(){
-        return courseID;
-
-    }
-    public String getCourseName() {
-        return courseName;
-
-    }
-    public String getProgram() {
-        return program;
-
-    }
-    public int getUnits(){
-        return units;
-
-    }
-    public void setCourseID(String courseID) {
-        this.courseID = courseID;
-
-    }
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
-
-    }
-    public void setProgram(String program){
-        this.program = program;
-
-    }
-    public void setUnits(int units){
-        this.units = units;
-
-    }
-    public void display(){
-        System.out.println("Course ID: " + " " + getCourseID());
-        System.out.println("Course Name: " + " " + getCourseName());
-        System.out.println("Program: " + " " + getProgram());
-        System.out.println("Program: " + " " + getUnits() + "\n");
-
-
-    }
-
-    @Override
-    public String toString() {
-        return "Course{" +
-                "courseID='" + courseID + '\'' +
-                ", courseName='" + courseName + '\'' +
-                ", program='" + program + '\'' +
-                ", units='" + units + '\'' +
-                '}';
-
+    public String getCourseCode() { return courseCode; }
+    public String getCourseTitle() { return courseTitle; }
+    public int getCreditUnits() { return creditUnits; }
+    public void setCourseTitle(String courseTitle) { this.courseTitle = courseTitle;}
+    public void setCreditUnits(int creditUnits) { this.creditUnits = creditUnits;
     }
 }

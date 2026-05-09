@@ -1,11 +1,15 @@
 package org.example.service;
+
 import org.example.model.Instructor;
+import org.example.model.Section;
 import java.util.List;
 
-public interface InstructorReg {
-    void saveInstructor(Instructor instructor);
-    List<Instructor> displayAllInstructors();
-    void updateInstructorSpecialization(String instructorID, String newSpec);
-    void removeInstructor(String instructorID);
-    Instructor findById(String instructorID);
+public interface IInstructorService {
+    void addInstructor(Instructor instructor);
+    void updateInstructor(String id, String newName, String newSpec);
+    void removeInstructor(String id);
+    void getInstructorDetails(Instructor instructor);
+    List<Instructor> getAllInstructors();
+    Instructor findInstructor(String id);
+    void assignInstructorToSection(Instructor instructor, Section section);
 }

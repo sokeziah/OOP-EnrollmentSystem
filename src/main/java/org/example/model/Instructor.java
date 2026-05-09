@@ -1,31 +1,47 @@
 package org.example.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Instructor extends Person {
-    private String Courses;
+    private String specialization;
+    private Department assignedDepartment;
+    private List<Section> assignedSections = new ArrayList<>();
 
-    public Instructor(String instructorID, String instructorName, String Courses){
-        super(PersonName, PersonID);
-        this.Courses = Courses;
+
+    public Instructor(String id, String name, String specialization) {
+        super(id, name);
+        this.specialization = specialization;
     }
 
-    public String getCourses(){
-        return Courses;
+    public void setSpecialization(String spec) {
+        this.specialization = spec;
     }
 
-    public void setCourses(String Courses){
-        this.Courses = Courses;
+    public void setAssignedDepartment(Department dept) {
+        this.assignedDepartment = dept;
+    }
+
+    public void addSection(Section section) {
+        this.assignedSections.add(section);
     }
 
     @Override
-    public void mainTask() {
-        System.out.println(getPersonName() + " ins an instructor who teaches: " + courses);
-    }
+    public void displayProfile() {
+        System.out.println("\n--- Instructor Profile ---");
+        System.out.println("ID: " + getPersonId());
+        System.out.println("Name: " + getPersonFullName());
+        System.out.println("Specialization: " + specialization);
 
-    public String toString(){
-        return "Instructor{" +
-                "Name='" + getPersonName() + '\'' +
-                ", ID='" + getPersonID() + '\'' +
-                ", Courses='" + courses + '\'' +
-                '}';
+        String deptName = (assignedDepartment != null) ? assignedDepartment.getDepartmentName() : "N/A";
+        System.out.println("Department: " + deptName);
+
+        System.out.print("Sections: ");
+        if (assignedSections.isEmpty()) {
+            System.out.println("None");
+        } else {
+            assignedSections.forEach(s -> System.out.print(s.getSectionName() + " "));
+            System.out.println();
+        }
     }
 }
