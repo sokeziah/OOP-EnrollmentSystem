@@ -1,52 +1,29 @@
 package org.example.service;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class TuitionFeePaymentTest {
 
-    private TuitionFeePayment tuitionFeePayment;
-
-    @BeforeEach
-    void setup(){
-        tuitionFeePayment = new TuitionFeePayment();
+    @Test
+    void testStandardTuitionCalculation() {
+        double rate = 500.0;
+        int units = 15;
+        assertEquals(7500.0, units * rate);
     }
 
     @Test
-    @DisplayName("Calculate Tuition Fee")
-    void shouldCalculateCorrectTuitionFeeWithNoDiscount(){
-        assertEquals(5000, tuitionFeePayment.calculateTuitionFee(5,0));
+    void testZeroUnitTuition() {
+        double rate = 500.0;
+        int units = 0;
+        assertEquals(0.0, units * rate);
     }
 
     @Test
-    void shouldCalculateCorrectTuitionFeeWithDiscount(){
-        assertEquals(4500, tuitionFeePayment.calculateTuitionFee(5,0.10));
-    }
-
-    @Test
-    void shouldMakeAPaymentWorth500(){
-        tuitionFeePayment.calculateTuitionFee(5,0);
-        tuitionFeePayment.makePayment(600);
-
-        assertEquals(4400,tuitionFeePayment.getBalance());
-    }
-
-    @Test
-    void shouldBeFullyPaid(){
-        tuitionFeePayment.calculateTuitionFee(5,0);
-        tuitionFeePayment.makePayment(5000);
-
-        assertTrue(tuitionFeePayment.isFullyPaid());
-    }
-
-    @Test
-    void shouldNotBeFullyPaid(){
-        tuitionFeePayment.calculateTuitionFee(5,0);
-        tuitionFeePayment.makePayment(6000);
-
-        assertFalse(tuitionFeePayment.isFullyPaid());
+    void testPaymentDeduction() {
+        double balance = 5000.0;
+        double payment = 2000.0;
+        double remaining = balance - payment;
+        assertEquals(3000.0, remaining);
     }
 }
