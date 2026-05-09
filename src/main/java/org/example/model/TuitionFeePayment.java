@@ -2,7 +2,7 @@ package org.example.model;
 
 public class Student extends Person {
     private String program;
-    private TuitionFeePayment tuitionDetails;
+    private TuitionFeePayment tuitionDetails;`
 
     public Student(String PersonName, String PersonID, String program) {
         super(PersonName, PersonID);
