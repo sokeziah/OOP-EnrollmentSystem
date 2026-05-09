@@ -1,40 +1,45 @@
 package org.example.model;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Student extends Person {
-    private String program;
-    private TuitionFeePayment tuitionDetails;
+    private String academicProgram;
+    private TuitionFeePayment financialRecord = new TuitionFeePayment();;
+    private List<Section> enrolledSections = new ArrayList<>();
+    private double tuitionBalance = 0.0;
 
-    public Student(String PersonName, String PersonID, String program) {
-        super(PersonName, PersonID);
-        this.program = program;
-        this.tuitionDetails = new TuitionFeePayment(0.0);
+    public Student(String id, String name, String program) {
+        super(id, name);
+        this.academicProgram = program;
+        this.financialRecord = new TuitionFeePayment();
+        this.enrolledSections = new ArrayList<>();
     }
 
-    public void setPersonName(String personName) {
-        super.setPersonName(personName);
+    public void setPersonFullName(String name) {
+        super.setPersonFullName(name);
     }
 
-    public void setProgram(String program){
-        this.program = program;
+    public void addSection(Section section) {
+        this.enrolledSections.add(section);
     }
 
-    public String getProgram(){
-        return program;
+    public String getAcademicProgram() {
+        return academicProgram;
     }
 
-    public TuitionFeePayment getTuitionDetails(){
-        return tuitionDetails;
+    public void setAcademicProgram(String p) {
+        this.academicProgram = p;
     }
 
-    public void sdisplay(){
-        System.out.println("Student ID: " + getPersonID());
-        System.out.println("Student Name: " + getPersonName());
-        System.out.println("Program: " + getProgram() + "\n");
+    public TuitionFeePayment getFinancialRecord() {
+        return financialRecord;
     }
 
+    public List<Section> getEnrolledSections() {
+        return enrolledSections;
+    }
 
     @Override
-    public void mainTask() {
-        System.out.println("Student learns");
+    public void displayProfile() {
     }
 }
